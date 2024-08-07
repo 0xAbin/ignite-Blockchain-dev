@@ -1,0 +1,17 @@
+syntax = "proto3";
+package core.core;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "core/core/params.proto";
+
+option go_package = "core/x/core/types";
+
+// GenesisState defines the core module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
